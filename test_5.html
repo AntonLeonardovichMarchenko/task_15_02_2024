@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="windows-1251" />
+    <title>TEST_5</title>
+</head>
+<body>
+
+<!--
+клиент принимает сообщения от сервера и выводит ихБЕЗ искажений
+-->
+
+<p id="pP">
+            фывапролджэячсмитьбю
+</p>
+
+<script type="text/javascript" src="/../../js/copyrtext.js" charset="windows-1251">
+const source = new EventSource("/server_5.js");
+//const list = document.getElementById("list");
+//
+//const lstElem = document.getElementById("listElem");
+pP =  document.getElementById("pP");
+//
+const val = 0;
+source.addEventListener("message", (e) => {
+    //const listItem = document.createElement("li");
+    //listItem.textContent += e.data;
+    //list.appendChild(listItem);
+    //lstElem.textContent += e.data;
+    //pP=йцукенгш//e.data;
+    //document.write(e.data);
+    val += 1;
+});
+</script>
+</body>
+</html>
