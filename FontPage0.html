@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FontPage</title>
+
+<p>
+    <!-- ссылка на начальную страницу -->
+    <a href = 'First_go.html'> Go to First_go page </a>
+</p>
+<p>
+    <a href = 'http://google.com'> go to Google </a>
+</p>
+
+ <!--
+Каскадные таблицы стилей (Cascading Style Sheets - CSS) - это стандарт
+визуального представления HTML-документов (???). Каскадные таблицы стилей
+предназначены для точного определения шрифтов, цвета, размеров полей, выравнивания,
+параметров рамок, координат элементов в документе и многого другого (???).
+Они позволяют воспроизводить анимационные эффекты - например, плавное появление содержимого
+документа из-за правого края, или сворачивание и разворачивание списков, благодаря чему
+появляется возможность управлять объемом отображаемой информации.
+
+Самый простой способ управления стилями CSS - это манипулирование атрибутом style отдельных
+элементов документа. Как и для большинства HTML-атрибутов, атрибуту style соответствует
+одноименное свойство объекта Element, и им можно манипулировать в сценариях на языке JavaScript.
+Важно: значением свойства style является не строка, а объект CSSStyleDeclaration (!!!).
+Свойства этого объекта представляют CSS-свойства, которые определены в HTML-атрибуте style.
+
+Здесь часть фона и текста перемещается вверх-вниз, часть - нет! При этом одни фрагменты
+"подвижного" текста выводятся непосредственно на канву, другие - поверх канвы (надписи с
+требованием удаления клоунов). Это видно при перемещении фугуры, состоящей из 'креста' и
+звёздочек.
+-->
+
+
+
+
+    <style>
+         /* CSS-код */
+
+.cC{
+background: rgb(147, 179, 179);
+}
+
+.cCx{
+  position: fixed;
+  bottom: 300px;
+  left: 95px;
+  background: rgb(147, 179, 179);
+}
+
+.noTxt {
+  /* определение всех этих свойств после того как задаётся запрет к показу,
+     переносится в КОНТЕКСТ, где реализуются собственные алгоритмы отображения */
+
+  // color: rgb(5, 150, 50); // цвет этого элемента устанавливается в контексте
+  // background-color: rgb(150, 125, 15 ); // как в таком случае быть с цветом фона?
+  // font:  52px Verdana;
+  // font-weight: lighter;
+  // left: 255px;
+  // bottom: 345px;
+  // text-align: center;
+  // position: fixed;
+
+  display: none;  // элемент НЕ показывается при демонстрации страницы,
+  // и это единственное что требуется при задании стиля параграфа .noTxt !
+}
+
+.moscow {
+  position: fixed;
+  font: italic 25px Arial;
+  color: rgb(47, 79, 79);
+  bottom: 25px;
+  left: 893px;
+}
+
+.p0TxtXa, .p0TxtXb {
+  text-align: center;
+  position: fixed;
+  bottom: 450px;
+  left: 235px;
+}
+
+.p0TxtXa {
+  font:  italic 37pt sans-serif;
+  color: rgb(119,136, 153);
+  background-color: rgb(210, 210, 210 );
+  font-weight: bold;
+  /*
+  text-align: center;
+  position: fixed;
+  bottom: 450px;
+  left: 235px;
+  */
+}
+
+.p0TxtXb {
+  font: italic 39pt sans-serif;
+  color: rgb(49,79, 80);
+  font-weight: lighter;
+  /*
+  text-align: center;
+  position: fixed;
+  bottom: 450px;
+  left: 235px;
+  */
+}
+
+
+.p50TxtX, .p40TxtX, .p30TxtX, .p20TxtX, .p10TxtX,
+.p00TxtX, .p01TxtX, .p02TxtX, .p03TxtX, .p04TxtX
+{
+ font: 10pt sans-serif;
+ color: rgb(1, 1, 1 );
+ font-weight: bold;
+ line-height: 1.46;
+}
+
+.p50TxtX {
+/*
+  font: monospace 15pt sans-serif;
+  color: rgb(0, 0, 0 );
+  font-weight: lighter;
+*/
+
+  position: relative;
+  bottom: 428px;
+  left: 393px;
+
+}
+
+.p40TxtX {
+/*
+  font: monospace 15pt sans-serif;
+  color: rgb(0, 0, 0 );
+  font-weight: lighter;
+*/
+
+  position: relative;
+  bottom: 448px;
+  left: 393px;
+
+}
+
+.p30TxtX {
+/*
+  font: monospace 15pt sans-serif;
+  color: rgb(0, 0, 0 );
+  font-weight: lighter;
+*/
+
+  position: relative;
+  bottom: 468px;
+  left: 393px;
+
+}
+
+.p20TxtX {
+/*
+  font: monospace 15pt sans-serif;
+  color: rgb(0, 0, 0 );
+  font-weight: lighter;
+*/
+
+  position: relative;
+  bottom: 488px;
+  left: 393px;
+
+}
+
+.p10TxtX {
+/*
+  font: monospace 15pt sans-serif;
+  color: rgb(0, 0, 0 );
+  font-weight: lighter;
+*/
+
+  position: relative;
+  bottom: 512px;
+  left: 391px;
+
+}
+
+.p00TxtX {
+/*
+  font: monospace 15pt sans-serif;
+  color: rgb(0, 0, 0 );
+  font-weight: lighter;
+*/
+
+  position: relative;
+  bottom: 552px;
+  left: 341px;
+
+}
+
+.p01TxtX {
+/*
+  font: monospace 15pt sans-serif;
+  color: rgb(0, 0, 0 );
+  font-weight: lighter;
+*/
+
+  position: relative;
+  bottom: 570px;
+  left: 393px;
+
+}
+
+.p02TxtX {
+/*
+  font: monospace 15pt sans-serif;
+  color: rgb(0, 0, 0 );
+   font-weight: lighter;
+*/
+
+  position: relative;
+  bottom: 590px;
+  left: 393px;
+
+}
+
+.p03TxtX {
+/*
+  font: monospace 15pt sans-serif;
+  color: rgb(0, 0, 0 );
+   font-weight: lighter;
+  */
+
+  position: relative;
+  bottom: 610px;
+  left: 393px;
+
+}
+
+.p04TxtX {
+/*
+  font: monospace 15pt sans-serif;
+  color: rgb(0, 0, 0 );
+   font-weight: lighter;
+*/
+
+  position: relative;
+  bottom: 630px;
+  left: 393px;
+}
+
+
+    </style>
+</head>
+
+
+<body class="bd">
+
+
+<canvas class='cC'
+        id="canvas"
+        width="1500" height="1000"
+        style="border:3px rgb(112,128,145) solid"
+        ></canvas>
+
+
+<!--
+Элемент Canvas позволяет выводить текст. Для этого вначале надо создать
+объект canvas, получить контекст (как обычно!). Далее у контекста
+(произведён от canvas) установить  свойство font. И вывести текст.
+-->
+
+<p class="p0TxtXa" > Уберите клоунов </p>
+<p class="p0TxtXb" > Уберите клоунов </p>
+
+<p class="p50TxtX" >|</p>
+<p class="p40TxtX" >|</p>
+<p class="p30TxtX" >|</p>
+<p class="p20TxtX" >|</p>
+<p class="p10TxtX" >+</p>
+<p class="p00TxtX" >_______ _______</p>
+<p class="p01TxtX" >|</p>
+<p class="p02TxtX" >|</p>
+<p class="p03TxtX" >|</p>
+<p class="p04TxtX" >|</p>
+
+<p class="moscow"> 2024, Москва, Россия </p>
+
+<!-- невидимый параграф noTxt содержит собственную текстовую информацию,
+     которая извлекается из параграфа и выводится НЕПОСРЕДСТВЕННО НА КАНВУ!
+     для этого требуется задать шрифт, цвет, позицию -->
+<p class="noTxt" id="idNoDisplay"> *** </p>
+
+
+    <canvas class='cCx'
+            id="canvasX"
+            width="150" height="90"
+            ></canvas>
+
+
+<script>
+
+// функция, которая создаёт градиент и возвращает ссылку на него
+function grd()
+{
+    var gradient = context.createLinearGradient(1, 1, 150, 100);
+    gradient.addColorStop(0.0, 'rgba(255, 10, 0, 1.0)');
+    gradient.addColorStop(0.3, 'rgba(190, 128, 25, 0.6)');
+    gradient.addColorStop(0.6, 'rgba(0, 0, 0, 0.8)');
+    gradient.addColorStop(1.0, 'rgba(0, 255, 100, 1.0)');
+    return gradient;
+}
+
+// основная канва и её контекст
+const canvas = document.getElementById("canvas");
+const context = canvas.getContext("2d");
+
+// далее надписи на канве, работа с параграфами и канвой
+
+const noDisp = document.getElementById("idNoDisplay");
+var nD0 = noDisp.innerText;
+context.font = "75px Arial";           // Фонт! Если не использовать CSS, то italic -
+//           -описатели шрифта-        // это часть определения шрифта. Здесь важен ПОРЯДОК
+                                       // описателей!
+context.fillStyle = "rgb(10, 10, 25)"; // в контексте устанавливается цвет текста
+context.fillText(nD0, 328,695);
+
+context.fillStyle = "rgb(255, 5, 11)";          //  в контексте устанавливается цвет текста
+context.font = "55px Times New Roman";          // Фонт в контексте!
+context.fillText("Слава России!", 550, 110);
+//                                 x, y координаты точки, с которой выводится текст
+//                выводимый текст
+/*
+
+Метод fillText(text, x, y) принимает три параметра.
+Вывод текста с помощью метода strokeText (буквы в рамочном представлении):
+*/
+
+context.font = 'italic 30px serif'
+context.fillStyle = "rgb(220, 15, 21)";   //  в контексте устанавливается цвет текста
+context.fillText("Нет войне", 140, 75);
+context.strokeStyle = "rgb(25, 21, 112)";   //  в контексте устанавливается цвет текста
+context.strokeText("Нет войне", 140, 75);
+
+/*
+Свойство textAlign позволяет выровнить текст относительно одной из сторон.
+Это свойство может принимать следующие значения:
+
+= left: текст начинается с указанной позиции
+= right: текст завершается до указанной позиции
+= center: текст располагается по центру относительно указанной позиции
+= start: значение по умолчанию, текст начинается с указанной позиции
+= end: текст завершается до указанной позиции
+
+*/
+
+var xTxt = 'No Passaran!';                  // текстовая переменная
+context.font = "bold 40px Verdana";         // Фонт в контексте!
+
+    context.shadowColor = "#F00";
+    context.shadowOffsetX = 5;
+    context.shadowOffsetY = 5;
+    context.shadowBlur = 5;
+
+context.fillStyle = "rgb(156, 25, 25)";     // устанавливается цвет текста
+context.fillText(xTxt, 252,335);            // надпись на канве
+
+    context.shadowColor = null;
+    context.shadowOffsetX = null;
+    context.shadowOffsetY = null;
+    context.shadowBlur = null;
+
+// Градиентная надпись с фиксированным расположением. Имеется проблема.
+// = надпись с градиентной можно вывести на конву.
+//   Свойства отображаемого текста:
+//      шрифт,
+//      размер,
+//      стиль,
+//      цвет заливки, в том числе ГРАДИЕНТ (это позволяют графические свойства канвы),
+//      координаты надписи (задаются относительно начала координат канвы).
+//
+//   Таким образом, надпись на канве оказывается "привязаной" к верхнему левому
+//   углу канвы (в том числе средствами CSS) и если канва как html элемент может
+//   перемещаться (в свойствах canvas свойству position присваивается соответствующее
+//   значение), то надпись, выведенную на канву, переместить или оставить неподвижной
+//   невозможно. Она может перемещаться только вместе с HTML тегом canvas.
+//
+// = также в HTML можно определить теги, например, тег <p> (для представления текста
+//   в виде параграфа). Для размещения параграфа ОТНОСИТЕЛЬНО канвы (НЕ НА КАНВЕ!)
+//   также существует свойство position, которое определяет способ размещения html
+//   объекта на странице.
+//   Значения свойства:
+//      static - положение элемента определяется браузером.
+//      relative - позиция элемента определяется смещением от того места,
+//                 в котором он появился по умолчанию.
+//      absolute - позиция элемента определяется относительно позиции родительского элемента.
+//      fixed - координаты вычисляются относительно границ контейнера.
+//
+//   позволяют закрепить положение элемента в окне браузера. на экране
+//   Положение параграфа может оставаться НЕПОДВИЖНЫМ.
+//
+// = графические возможности параграфа позволяют размещать на странице
+//   текст в соответствии с основными свойствами:
+//      шрифт,
+//      размер,
+//      стиль,
+//      цвет, НО НЕ ГРАДИЕНТ( таких возможностей в параграфе НЕ предусмотрено),
+//      координаты расположения параграфа.
+//
+//   Таким образом, при определении параграфа можно задавать ему абсолютное
+//   расположение с ограниченными графическими возможностями (в параграфе не
+//   удаётся разместить текст с градиентной заливкой).
+//
+// Задача: расположить на странице в окне браузера НЕПОДВИЖНУЮ надпись с
+// градиентной заливкой.
+// Решение:
+//      графические свойства элемента canvas позволяют РИСОВАТЬ на канве.
+//      метод context.fillText(...) выводит текст как изображение (в том числе
+//      и градиентное).
+// Предлагается определить дополнительный html элемент <canvas>, в CSS
+// определить его свойства, в частности свойство position, задать цвет фона,
+// пусть совпадает с цветом фона ОСНОВНОЙ канвы, определить для вспомогательной
+// канвы собственный контекст и после этого с помощью данного вспомогательного
+// контекста методом context.fillText(...) выводить на вспомогательную канву
+// текста ЛЮБЫМИ доступными шрифтами, цветами, тенями и т.д., какие только
+// допускаются элементом <canvas>. Наример.
+//
+
+var gradient = grd();
+//             функция, которая создаёт градиент и возвращает ссылку на него
+
+// вспомогательная канва и её контекст
+const canvasX = document.getElementById("canvasX");
+const contextX = canvasX.getContext("2d");
+
+// шрифт
+contextX.font = "italic 55px Arial";
+
+// градиент
+contextX.fillStyle = gradient;         // устанавливается цвет текста
+// надпись на вспомогательной канве (элементе html с соответствующим
+// значением свойства position)
+contextX.fillText('--^v--', 20, 85);    // надпись с градиентной заливкой на канве
+// она красивая (с градиентной заливкой - что невозможно для простого html элемента)
+// и неподвижная!
+
+// =======================================================================
+
+
+</script>
+
+
+</body>
+</html>

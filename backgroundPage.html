@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Background</title>
+</head>
+<body>
+
+<p>
+    <!-- ссылка на начальную страницу -->
+    <a href = 'First_go.html'> Go to First_go page </a>
+</p>
+<p>
+    <a href = 'http://google.com'> go to Google </a>
+</p>
+
+<!--
+
+Вместо конкретного цвета для заливки фигур, например, прямоугольников, можно
+использовать изображения. Для этого у контекста элемент canvas имеется функция
+createPattern(), которая принимает два параметра: изображение, которое будет
+использоваться в качестве фона, и принцип повторения изображения.
+Последний параметр играет роль в том случае, если размер изображения меньше,
+чем размер фигуры на canvas. Этот параметр может принимать следующие значения:
+
+= repeat: изображение повторяется для заполнения всего пространства фигуры
+= repeat-x: изображение повторяется только по горизонтали
+= repeat-y: изображение повторяется только по вертикали
+= no-repeat: изображение не повторяется
+
+-->
+<canvas id="canvas" width="1000" height="1000" style="border:2px solid "></canvas>
+<script>
+var canvas = document.getElementById("canvas");
+var context = canvas.getContext("2d");
+var img = new Image();
+img.src = "MSU.png";
+
+img.onload = function()
+{
+
+context.clearRect(0, 0, canvas.width, canvas.height);
+
+var pattern = context.createPattern(img, 'repeat');
+context.fillStyle = pattern;
+
+context.fillRect(10, 10, 250, 250);
+context.strokeRect(10,10,250,250);
+
+context.fillRect(260, 10, 250, 250);
+
+context.fillRect(10, 260, 250, 250);
+
+context.fillRect(260, 260, 250, 250);
+
+context.fillRect(260, 260, 250, 250);
+context.strokeRect(260,260,250,250);
+context.fillRect(510, 260, 250, 250);
+context.fillRect(260, 510, 250, 250);
+context.fillRect(510, 510, 250, 250);
+
+};
+
+
+
+
+</script>
+
+
+</body>
+</html>

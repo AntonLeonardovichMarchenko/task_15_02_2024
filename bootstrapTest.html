@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+  <title>подключение Bootstrap k HTML странице</title>
+
+    <p>
+    <!-- ссылка на начальную страницу -->
+    <a href = 'First_go.html'> Go to First_go page </a>
+</p>
+<p>
+    <a href = 'http://google.com'> go to Google </a>
+</p>
+
+
+
+
+  <!-- meta теги -->
+  <meta charset="utf-8">
+  <!-- это обеспечивает правильный рендеринг и позиционирование) -->
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- ширину страницы в соответствии с шириной
+       экрана устройства (которая будет варьироваться
+       в зависимости от устройства)
+                        устанавливает начальный уровень масштабирования
+                        при первой загрузке страницы браузером
+  -->
+
+     <!--
+    "правильное" подключение bootstrap. Применили. Какое из них?
+
+-->
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.css" rel="stylesheet">
+
+  <style>
+  /* CSS-код и для bootstrap он никуда не девался!
+     bootstrap может не всё. CSS помогает */
+
+/* задание цвета для ячеек в строке */
+.active{
+background: rgb(150, 180, 179);
+}
+.warning{
+    color: rgb(200, 150, 5);
+}
+.danger{
+background: rgb(250, 25, 25);
+color: rgb(220, 150, 155);
+}
+
+/* заголовок таблицы тоже удалось поставить на место через CSS */
+.tblB1caption{
+
+  font:  20px Verdana;
+  font-weight: lighter;
+
+  text-align: center;
+  caption-side: top;
+}
+
+  </style>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.js"></script>
+
+</head>
+<body>
+
+<!-- контент страницы -->
+
+
+ <div class="container">
+  <h1> Bootstrap страница </h1>
+  <p>Эта часть находится внутри класса .container.</p>
+  <p>Класс .container предоставляет адаптивный контейнер фиксированной ширины.</p>
+ </div>
+
+<!--
+Bootstrap tables
+стиль таблиц средствами Bootstrap.
+Добавить базовый класс .table к любому <table>, а затем расширить с помощью
+дополнительных классов модификаторов или пользовательских стилей.
+Все стили таблиц не наследуются в Bootstrap, то есть любые вложенные таблицы
+могут быть стилизованы независимо от родительских.
+
+                            Таблицы
+На веб-страницах таблицы используются для представления данных в виде двухмерной
+структуры, которая состоит из строк, столбцов и ячеек. Создание таблицы осуществляется
+посредством тегов языка HTML.
+После создания таблица обычно оформляется с помощью написания правил CSS (задание стилей).
+Процесс оформления можно упростить, если использовать готовые CSS классы платформы(?)
+Bootstrap. Оформление таблицы с помощью Bootstrap производится путём добавления к
+таблице или к её различным частям (строкам, ячейкам) соответствующих CSS классов.
+При задании CSS классов, меняется оформление таблицы.
+
+                Создание таблицы в HTML
+начинается с элемента table (<table>...</table>), внутри которого помещают глобальный заголовок
+(шапку) (<thead>...</thead>) и основное содержимое (<tbody>...</tbody>).
+Далее в элемент thead и tbody помещают строки (<tr>...</tr>).
+После этого в элементе tr (<tr>...</tr>) создают ячейки с помощью
+элементов td (<td>...</td>) и th (<th>...</th>) - локальный заголовок (шапочку),
+внутрь которых помещается содержимое, которое должно выводиться в этой ячейке.
+Элемент th (<th>...</th>) обычно используют в локальных заголовках, т.к. он
+выравнивает текст локального заголовка по центру и придаёт ему жирное начертание.
+
+                Объединение ячеек
+Для объединения ячеек по вертикали и горизонтали предназначены атрибуты:
+
+rowspan="N" - объединяет N ячеек по вертикали;
+colspan="N" - объединяет N ячеек по горизонтали.
+
+Применять данные атрибуты можно для элементов td и th.
+-->
+
+<table class="tbl0">
+    <caption>Простой способ задания таблицы</caption>
+
+<thead>
+<tr>
+    <th>  th1   </th>
+    <th>  th2   </th>
+    <th>  th3   </th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+    <td> cell11 </td>
+    <td> cell12 </td>
+    <td> cell13 </td>
+</tr>
+<tr>
+    <td> cell21 </td>
+    <td> cell22 </td>
+    <td> cell23 </td>
+</tr>
+</tbody>
+
+</table>
+
+<!--
+            Bootstrap таблица: определение HTML элемента
+            <table class="table">
+            :::::::::::::::::::::::::::
+-->
+
+  <!--
+                таблица с границами: изменить значение свойства class для .table
+                элементу table - можно добавлять границы для всех ячеек этой таблицы
+                для этого к атрибуту html элемента .table надо добавить (именно ДОБАВИТЬ!!! )
+                ещё одно обозначение класса Bootstrap .table-bordered. А чтобы была ещё и
+                подсветка строки, на которой в данный момент находится курсор - ещё и table-hover.
+                аналогично table-condensed должен вполовину уменьшать отступы в ячейках таблицы.
+                Но здесь важен порядок и сочетание значений свойства class: table-condensed
+                работает только в паре со свойством table.
+
+     -->
+
+  <table class="tblB0 table table-hover table-bordered " >
+   <thead>
+   <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+   </thead>
+    <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@---row1!--</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@---row2---</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td colspan="2">Larry the Bird</td>
+      <td>@---row3---</td>
+
+    </tr>
+  </tbody>
+  </table>
+
+
+<table class="tblB1 table  table-hover table-bordered ">
+    <caption  class=tblB1caption> <!-- style="caption-side: top"> -->
+    это просто Название таблицы
+    </caption>
+    <thead>
+        <tr>
+            <th>№ чека</th>
+            <th>Способ платежа</th>
+            <th>Дата платежа</th>
+            <th>Сумма</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="active">
+            <td>2803</td>
+            <td>Наличные</td>
+            <td>04.08.2014</td>
+            <td>2005.00</td>
+        </tr>
+        <tr class="success">
+            <td>2804</td>
+            <td>Карта VISA</td>
+            <td>04.08.2014</td>
+            <td>1270.00</td>
+        </tr>
+        <tr class="info">
+            <td>2805</td>
+            <td>Наличные</td>
+            <td>05.08.2014</td>
+            <td>1356.50</td>
+        </tr>
+        <tr class="warning">
+            <td>2806</td>
+            <td>Наличные</td>
+            <td>05.08.2014</td>
+            <td>5200.05</td>
+        </tr>
+        <tr class="danger">
+            <td>2807</td>
+            <td>Карта VISA</td>
+            <td>06.08.2014</td>
+            <td>315.70</td>
+        </tr>
+    </tbody>
+</table>
+
+<!--
+Многие из компонентов для выполнения требуют использования JavaScript.
+В частности, для них требуется собственный плагин JavaScript.
+чтобы включить их надо разместить следующий <script> в конце страницы,
+прямо перед закрывающим тегом </body>.
+-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+
+
+</body>
+</html>
