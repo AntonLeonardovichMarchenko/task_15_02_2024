@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>theSun</title>
+</head>
+
+
+<body>
+
+<p>
+    <!-- ссылка на начальную страницу -->
+    <a href = 'First_go.html'> Go to First_go page </a>
+</p>
+<p>
+    <a href = 'http://google.com'> go to Google </a>
+</p>
+
+
+<div id = "options">
+<form name = 'theSun'>
+
+
+
+    <!--
+    есть группы вертикальных и горизонтальных радиокнопок типа "radio" под именами
+    theSun.ch_12[i] (из них theSun.ch_12[1] в состоянии 'checked')
+    theSun.ch_AB[i] (из них theSun.ch_AB[1] в состоянии 'checked')
+
+    нужно: - отслеживать состояние радиокнопок в группах
+           - по этим состояниям определять координату ячейки таблицы с картинкой
+            (A1, A2, B1, B2) - не так уж и сложно!
+           - производить перемещение картинок из ячеек таблицы в отдельную рамку,
+             а из рамки в ячейку.
+
+    в JavaScript-части сначала определяются обработчики событий, связанные с
+    переключением радиокнопок в группах. Событие "click", обработчики (слушатели)
+    - это пара функций onclick12 и onclickAB для каждой радиокнопки группы.
+    В этих функциях производится определение значения (X и Y) координат
+    ячейки таблицы.
+
+    -->
+
+    <table border="1" id = 'tbl0'>
+        <tr id = 'tr0'>
+            <td id = 'td0'>
+                <img id = 'img0' src = 'MSU.png' width = '250' height = 250>
+            </td>
+        </tr>
+    </table>
+
+
+    <table border="1" id = 'tbl1'>
+
+    <tr>
+        <th> ... </th>
+        <th>A  <input type="radio" name = 'ch_AB' id = 'chkA'  value="chkA"/> </th>
+        <th>B  <input type="radio" name = 'ch_AB' id = 'chkB'  value="chkB" checked = 'checked'/> </th>
+     </tr>
+
+
+    <tr>
+      <td> 1 <input type="radio" name="ch_12" id = 'chk1' value="chk1"/>  </td>
+
+         <td id = 'A1'> <img id = 'imgA1' src = 'theSun0.jpg' width = '250' height = 250 />   </td>
+         <td id = 'B1'> <img id = 'imgA2' src = 'theSun1.jpg' width = '250' height = 250 />   </td>
+    </tr>
+
+    <tr>
+        <td> 2 <input type="radio" name="ch_12"  id = 'chk2' value="chk2" checked = 'checked'/> </td>
+
+        <td id = 'A2'> <img id = 'imgB1' src = 'theSun2.jpg' width = '250' height = 250 /> </td>
+        <td id = 'B2'> <img id = 'imgB2' src = 'theSun3.jpg' width = '250' height = 250 /> </td>
+    </tr>
+
+
+</table>
+
+    </form>
+
+ </div>
+
+<button id = 'openButtAB' class='open-button-AB' type='button' >Открыть диалог</button>
+
+
+<dialog id='dAB' class='dlgAB' type='dialog' >
+  <p id = prg1 class = 'paragraph1' >----------</p>
+  <p>Изменить метку</p>
+
+  <button id = 'changeButtAB' class='change-button-AB' type='button' >Изменить в параграфе диалога</button>
+
+ </dialog>
+
+
+<script>
+
+
+
+ let openButton = document.getElementById('openButtAB');
+
+openButton.onclick = function()
+{
+  alert('Нажата кнопка open-button-AB');
+  console.log('Нажата кнопка open-button-AB');
+  dAB.show()
+};
+
+ let changeButton = document.getElementById('changeButtAB');
+
+changeButton.onclick = function()
+{
+  alert('Нажата кнопка change-button-AB');
+  console.log('Нажата кнопка change-button-AB');
+  /*dAB.close()*/
+  prg1.textContent = 'XXXXX';
+};
+
+
+// =======================================================================
+
+/*
+переменные, которые задействованы в перемещении картинок. Их начальная
+инициализация обязательна. Иначе будет пропущен один ход на инициализацию.
+*/
+let X = 0;
+let Y = 0;
+
+
+theSun = document.theSun;
+
+/*
+Крепёж обработчиков событий к радиокнопкам:
+поскольку радиокнопок может быть много, то при прикреплении к ним обработчика
+события ("click", onclick) надо перебрать все элементы массива или групп
+радиокнопок. Радиокнопки с ОДНИМ ОЩИМ именем принадлежат к одной группе. Здесь
+ДВЕ группы: ch_12 и ch_AB. Группы кнопок (вертикальных или горизонтальных)
+который можно получить по имени группы (форма.вертикальная_группа_радиокнопок.длина или
+форма.горизонтальная_группа_радиокнопок.длина).
+Для каждой группы определён собственный обработчик события, который
+обеспечивает изменение значения координаты для перестановки картинки в каждой ячейке
+таблицы. Количество кнопок в группах может различаться и поэтому для каждой группы
+определён собственный оператор for для назначения слушателя события.
+*/
+
+// слушатель события для вертикальной группы кнопок
+for (var i = 0; i < theSun.ch_12.length; i++)
+{
+ theSun.ch_12[i].addEventListener("click", onclick12);
+}
+
+// слушатель события для горизонтальной группы кнопок
+for (var i = 0; i < theSun.ch_AB.length; i++)
+{
+ theSun.ch_AB[i].addEventListener("click", onclickAB);
+}
+
+/*
+    функции обработки события "click" для групп вертикальных и
+    горизонтальных радиокнопок theSun.ch_12 и theSun.ch_AB. В конце
+    концов всё сводится к функции tblTransformer, которая в зависимости от
+    значения параметров (X, Y) обеспечивает перемещение картинок в
+    ячейках таблиц tbl0 и tbl1.
+*/
+
+function onclick12(e)
+{
+   switch (e.target.id)
+   {
+    case 'chk1':
+        Y = 0;
+        break;
+    case 'chk2':
+         Y = 1;
+         break
+   }
+   console.log(e.target.id);
+   console.log(Y);
+
+   tblTransformer(X, Y)
+
+}
+
+function onclickAB(e)
+{
+   switch (e.target.id)
+   {
+    case 'chkA':
+        X = 0;
+        break;
+    case 'chkB':
+         X = 1;
+         break
+   }
+   console.log(e.target.id);
+   console.log(X);
+
+   tblTransformer(X, Y)
+
+}
+
+function tblTransformer(X, Y)
+{
+img0Buff = document.getElementById('img0');
+mem0Src = img0Buff.src;
+// =======================================================================
+
+    if (X == 0 && Y == 0)
+    {
+      imgA1Buff = document.getElementById('imgA1');
+      memA1Src = imgA1Buff.src;
+      imgA1Buff.src = mem0Src;
+      img0Buff.src = memA1Src;
+    }
+    else if (X == 1 && Y == 0)
+    {
+      imgA2Buff = document.getElementById('imgA2');
+      memA2Src = imgA2Buff.src;
+      imgA2Buff.src = mem0Src;
+      img0Buff.src = memA2Src;
+    }
+    else if (X == 0 && Y == 1)
+    {
+      imgB1Buff = document.getElementById('imgB1');
+      memB1Src = imgB1Buff.src;
+      imgB1Buff.src = mem0Src;
+      img0Buff.src = memB1Src;
+    }
+    else if (X == 1 && Y == 1)
+    {
+      imgB2Buff = document.getElementById('imgB2');
+      memB2Src = imgB2Buff.src;
+      imgB2Buff.src = mem0Src;
+      img0Buff.src = memB2Src;
+    }
+
+}
+
+
+
+</script>
+
+</body>
+</html>
