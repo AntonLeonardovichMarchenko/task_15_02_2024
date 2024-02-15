@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Background</title>
+</head>
+<body>
+
+<p>
+    <!-- ссылка на начальную страницу -->
+    <a href = 'First_go.html'> Go to First_go page </a>
+</p>
+<p>
+    <a href = 'http://google.com'> go to Google </a>
+</p>
+
+<canvas id="canvas" width="900" height="900"></canvas>
+<!-- здесь очень важно соответствие:
+= размер канвы,
+= размер картинки
+= значание параметра при вызове метода ctx.fillRect(0, 0, 900, 900).
+С большими картинками проблемы при размешении. Хотя (иногда) удаётся получить
+интересные результаты. Не как мозаику из мелких фрагментов наподобие покрытой кафельной
+плиткой стенки не кухне, но как ОДНУ целую картинку, например, университет или мостовую.
+Они тоже собираются ПО ЧАСТЯМ. И почему об этом никто не написал?! Чёрная рамочка
+в верхнем левом углу показывает размеры "кухонной" плитки "photoRocksLittle.png".
+-->
+
+<script>
+
+/* разные картинки - разные размеры изображений - разные результаты */
+
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+
+const img = new Image();
+//img.src = 'img.png'
+//img.src = 'photoRocksLittle.png'
+img.src = 'photoRocks.jpg' // эта большая картинка тоже собрана по фрагментам
+
+img.onload = () => {
+  const pattern = ctx.createPattern(img, "repeat");
+  ctx.fillStyle = pattern;
+  //ctx.fillRect(0, 0, 300, 300);
+  ctx.fillRect(0, 0, 900, 900);
+  ctx.strokeRect(0,0,190,190);
+
+};
+
+
+
+</script>
+</body>
+</html>
