@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>test_8</title>
+</head>
+<body>
+<script>
+fetch("server_8.js")
+    .then(response => {
+        console.log(response.status);       // 200
+        console.log(response.statusText);   // OK
+        console.log(response.url);          // http://localhost:3000/test_8
+    });
+</script>
+</body>
+</html>
